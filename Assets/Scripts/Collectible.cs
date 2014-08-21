@@ -10,16 +10,19 @@ public class Collectible : MonoBehaviour {
 		if (collider2D == null) {
 			Debug.Log ("NUSGDG: Attach a collider to your collectible!");
 		}
-		else if (collider2D.isTrigger == false) {
+		/*else if (collider2D.isTrigger == false) {
 			Debug.Log ("NUSGDG: Set isTrigger (in the Box Collider 2D settings) to true for the pickup to work");
-		}
+		}*/
 
 		gameManager = GameManager.instance;
+		if (gameManager != null)
+			gameManager.IncrementCollectibleCount();
 
 	}
 
 	// Called when some other object enters your hitbox. (note: isTrigger must be on!
-	void OnTriggerEnter2D(Collider2D other) {
+	void OnCollisionEnter2D(Collision2D collision) {
+		var other = collision.collider;
 		// First we need to check whether the thing it's colliding with is the player.
 
 		// Method 1: Check object name

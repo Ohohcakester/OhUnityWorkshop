@@ -5,6 +5,33 @@ public class GameManager : MonoBehaviour {
 
 	public static GameManager instance {get; private set;}
 
+	// NOTE: Anything with [SerializeField] is editable in the unity editor.
+
+	[SerializeField]
+	private GameObject prefabCollectible = null;
+
+	//[SerializeField]
+	private Rect scoreRect = new Rect(40,40,200,100);
+	
+	//[SerializeField]
+	private GUIStyle scoreGuiStyle;
+
+	private int score;
+
+	[SerializeField]
+	private Vector2 spawnLimitBottomLeft = new Vector2(-7,-4.5f);
+	[SerializeField]
+	private Vector2 spawnLimitTopRight = new Vector2(7, 4.5f);
+
+	private float nextSpawnTime;
+
+	[SerializeField]
+	private float spawnCooldown = 1f;
+
+	private int collectibleCount;
+	[SerializeField]
+	private int collectibleLimit = 10;
+
 	// Awake is called before start.
 	void Awake() {
 		instance = this;
@@ -12,10 +39,60 @@ public class GameManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		if (scoreGuiStyle == null) {
+			scoreGuiStyle = new GUIStyle();
+			scoreGuiStyle.fontSize = 20;
+			scoreGuiStyle.normal.textColor = Color.white;
+		}
+
+		score = 0;
+		nextSpawnTime = Time.time + spawnCooldown;
+
+		if (prefabCollectible == null)
+			Debug.Log ("NUSGDG: The GameManager's collectible prefab has not been assigned! The GameManager can't spawn any collectibles.");
 	}
-	
+
+	public void ItemCollected() {
+		score++;
+		collectibleCount--;
+	}
+
+	public void IncrementCollectibleCount() {
+		collectibleCount++;
+	}
+
+	private void SpawnCollectible() {
+		float spawnX = Random.Range(spawnLimitBottomLeft.x, spawnLimitTopRight.x);
+		float spawnY = Random.Range(spawnLimitBottomLeft.y, spawnLimitTopRight.y);
+
+		Instantiate(prefabCollectible, new Vector3(spawnX, spawnY, 0), prefabCollectible.transform.rotation);
+	}
+
 	// Update is called once per frame
-	void Update () {
-	
+	void Update() {
+		// Controls the spawning of collectibles
+		if (prefabCollectible != null && Time.time > nextSpawnTime) {
+			nextSpawnTime += spawnCooldown;
+
+			if (collectibleCount < collectibleLimit)
+				SpawnCollectible();
+		}
+	}
+
+	// On GUI.
+	void OnGUI() {
+		GUI.Label(scoreRect, score.ToString(), scoreGuiStyle);
+	}
+
+	// This draws the white guidelines in the unity editor.
+	void OnDrawGizmos() {
+		Gizmos.DrawLine (new Vector3(spawnLimitBottomLeft.x, spawnLimitBottomLeft.y, 0),
+		                 new Vector3(spawnLimitBottomLeft.x, spawnLimitTopRight.y, 0));
+		Gizmos.DrawLine (new Vector3(spawnLimitBottomLeft.x, spawnLimitBottomLeft.y, 0),
+		                 new Vector3(spawnLimitTopRight.x, spawnLimitBottomLeft.y, 0));
+		Gizmos.DrawLine (new Vector3(spawnLimitTopRight.x, spawnLimitTopRight.y, 0),
+		                 new Vector3(spawnLimitBottomLeft.x, spawnLimitTopRight.y, 0));
+		Gizmos.DrawLine (new Vector3(spawnLimitTopRight.x, spawnLimitTopRight.y, 0),
+		                 new Vector3(spawnLimitTopRight.x, spawnLimitBottomLeft.y, 0));
 	}
 }
