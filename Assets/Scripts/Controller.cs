@@ -32,15 +32,19 @@ public class Controller : MonoBehaviour {
 			if (Input.GetKey(KeyCode.RightArrow))
 				velocity += Vector2.right*speed;
 
-			rigidbody2D.velocity  = velocity; // Set the rigidbody's velocity.
+			rigidbody2D.velocity  = velocity; // Update the rigidbody's velocity.
 		}
 
 	}
 
 	// Called at the start of the game.
 	void Start() {
+		CheckForErrors();
+	}
+
+
+	void CheckForErrors(){
 		if (rigidbody2D == null)
 			Debug.Log ("NUSGDG: Hey, you haven't attached the Rigidbody2D to the player!");
 	}
-
 }

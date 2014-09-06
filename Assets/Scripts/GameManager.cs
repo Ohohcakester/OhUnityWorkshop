@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+// This is a game manager script. Attach it to something.
+
 public class GameManager : MonoBehaviour {
 
 	public static GameManager instance {get; private set;}
@@ -39,17 +41,10 @@ public class GameManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		if (scoreGuiStyle == null) {
-			scoreGuiStyle = new GUIStyle();
-			scoreGuiStyle.fontSize = 20;
-			scoreGuiStyle.normal.textColor = Color.white;
-		}
+		CheckForErrors();
 
 		score = 0;
 		nextSpawnTime = Time.time + spawnCooldown;
-
-		if (prefabCollectible == null)
-			Debug.Log ("NUSGDG: The GameManager's collectible prefab has not been assigned! The GameManager can't spawn any collectibles.");
 	}
 
 	public void ItemCollected() {
@@ -68,7 +63,7 @@ public class GameManager : MonoBehaviour {
 		Instantiate(prefabCollectible, new Vector3(spawnX, spawnY, 0), prefabCollectible.transform.rotation);
 	}
 
-	// Update is called once per frame
+	// Update() : Update is called once per frame
 	void Update() {
 		// Controls the spawning of collectibles
 		if (prefabCollectible != null && Time.time > nextSpawnTime) {
@@ -79,12 +74,12 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
-	// On GUI.
+	// OnGUI() : Use this for drawing things directly on to the screen.
 	void OnGUI() {
 		GUI.Label(scoreRect, score.ToString(), scoreGuiStyle);
 	}
 
-	// This draws the white guidelines in the unity editor.
+	// OnDrawGizmos() : This draws the white guidelines in the unity editor.
 	void OnDrawGizmos() {
 		Gizmos.DrawLine (new Vector3(spawnLimitBottomLeft.x, spawnLimitBottomLeft.y, 0),
 		                 new Vector3(spawnLimitBottomLeft.x, spawnLimitTopRight.y, 0));
@@ -94,5 +89,16 @@ public class GameManager : MonoBehaviour {
 		                 new Vector3(spawnLimitBottomLeft.x, spawnLimitTopRight.y, 0));
 		Gizmos.DrawLine (new Vector3(spawnLimitTopRight.x, spawnLimitTopRight.y, 0),
 		                 new Vector3(spawnLimitTopRight.x, spawnLimitBottomLeft.y, 0));
+	}
+
+	void CheckForErrors() {
+		// Initialise font style if not set.
+		if (scoreGuiStyle == null) {
+			scoreGuiStyle = new GUIStyle ();
+			scoreGuiStyle.fontSize = 20;
+			scoreGuiStyle.normal.textColor = Color.white;
+		}
+		if (prefabCollectible == null)
+			Debug.Log ("NUSGDG: The GameManager's collectible prefab has not been assigned! The GameManager can't spawn any collectibles.");
 	}
 }
