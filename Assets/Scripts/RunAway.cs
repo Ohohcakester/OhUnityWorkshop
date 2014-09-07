@@ -5,7 +5,6 @@ using System.Collections;
 
 public class RunAway : MonoBehaviour {
 
-	[SerializeField]
 	private GameObject runFromThis;
 
 	[SerializeField]
