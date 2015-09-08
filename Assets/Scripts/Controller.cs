@@ -17,7 +17,7 @@ public class Controller : MonoBehaviour {
 	void Update () {
 
 		// Movement controls.
-		if (rigidbody2D != null) {
+		if (GetComponent<Rigidbody2D>() != null) {
 			Vector2 velocity = Vector2.zero; // a Vector2 has an x and y coordinate.
 			
 			if (Input.GetKey(KeyCode.UpArrow))
@@ -32,7 +32,7 @@ public class Controller : MonoBehaviour {
 			if (Input.GetKey(KeyCode.RightArrow))
 				velocity += Vector2.right*speed;
 
-			rigidbody2D.velocity  = velocity; // Update the rigidbody's velocity.
+			GetComponent<Rigidbody2D>().velocity  = velocity; // Update the rigidbody's velocity.
 		}
 
 	}
@@ -44,7 +44,7 @@ public class Controller : MonoBehaviour {
 
 
 	void CheckForErrors(){
-		if (rigidbody2D == null)
+		if (GetComponent<Rigidbody2D>() == null)
 			Debug.Log ("NUSGDG: Hey, you haven't attached the Rigidbody2D to the player!");
 	}
 }

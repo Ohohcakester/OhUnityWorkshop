@@ -26,7 +26,7 @@ public class RunAway : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		// Makes this object run away.
-		if (rigidbody2D != null && runFromThis != null) {
+		if (GetComponent<Rigidbody2D>() != null && runFromThis != null) {
 			Vector2 direction = this.transform.position - runFromThis.transform.position;
 
 			if (smart)
@@ -34,13 +34,13 @@ public class RunAway : MonoBehaviour {
 
 			direction.Normalize();
 
-			rigidbody2D.velocity = direction*speed;
+			GetComponent<Rigidbody2D>().velocity = direction*speed;
 		}
 	}
 
 
 	private void CheckForErrors() {
-		if (rigidbody2D == null)
+		if (GetComponent<Rigidbody2D>() == null)
 			Debug.Log ("NUSGDG: This "+this.name+" needs a rigidbody2D to be able run away!");
 	}
 
