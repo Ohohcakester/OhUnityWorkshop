@@ -39,12 +39,6 @@ public class RunAway : MonoBehaviour {
 	}
 
 
-	private void CheckForErrors() {
-		if (GetComponent<Rigidbody2D>() == null)
-			Debug.Log ("NUSGDG: This "+this.name+" needs a rigidbody2D to be able run away!");
-	}
-
-
 	// For fun. This makes the running away a little smarter. (Avoids walls)
 	private Vector2 SmartDirection(Vector2 direction) {
 		bool hitSomething = false;
@@ -94,4 +88,12 @@ public class RunAway : MonoBehaviour {
 		return new Vector2(direction.y, -direction.x);
 	}
 
+
+
+	// This function is not important.
+	// I made it just to diagnose some possible errors that you might make during the workshop :D
+	private void CheckForErrors() {
+		if (GetComponent<Rigidbody2D>() == null)
+			Debug.Log ("NUSGDG: This "+this.name+" needs a rigidbody2D to be able run away!");
+	}
 }

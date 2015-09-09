@@ -43,6 +43,8 @@ public class Controller : MonoBehaviour {
 	}
 
 
+	// This function is not important.
+	// I made it just to diagnose some possible errors that you might make during the workshop :D
 	void CheckForErrors(){
 		if (GetComponent<Rigidbody2D>() == null)
 			Debug.Log ("NUSGDG: Hey, you haven't attached the Rigidbody2D to the player!");

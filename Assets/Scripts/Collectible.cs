@@ -38,7 +38,8 @@ public class Collectible : MonoBehaviour {
 		Destroy(this.gameObject);
 	}
 
-
+	// This function is not important.
+	// I made it just to diagnose some possible errors that you might make during the workshop :D
 	private void CheckForErrors() {
 		var colliders = this.GetComponents<Collider2D>();
 		if (colliders == null || colliders.Length == 0) {

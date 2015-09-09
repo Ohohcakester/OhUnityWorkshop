@@ -91,6 +91,9 @@ public class GameManager : MonoBehaviour {
 		                 new Vector3(spawnLimitTopRight.x, spawnLimitBottomLeft.y, 0));
 	}
 
+
+	// This function is not important.
+	// I made it just to diagnose some possible errors that you might make during the workshop :D
 	void CheckForErrors() {
 		// Initialise font style if not set.
 		if (scoreGuiStyle == null) {
