@@ -3,6 +3,16 @@ using System.Collections;
 
 // Attach this script to make an object into a collectible.
 
+/** 
+ * HOW IT WORKS:
+ * Note: Requires the GameManager.cs script to be attached to something in the scene.
+ * 
+ * This script makes it so that when something enters its hitbox, do
+ * 	1) Check if it is the player that entered. If not, return.
+ *  2) Tell the GameManager that an item has been collected.
+ *  3) Delete itself
+ */
+
 public class Collectible : MonoBehaviour {
 
 	private GameManager gameManager;

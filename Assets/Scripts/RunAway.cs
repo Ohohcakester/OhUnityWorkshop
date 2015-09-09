@@ -3,6 +3,23 @@ using System.Collections;
 
 // Attach this script to make the object run away.
 
+/** 
+ * HOW IT WORKS:
+ * This object will run away from the object stored in the variable "runFromThis".
+ * Generally, "runFromThis" refers to the player. (initialised in Start())
+ * 
+ * [With smart = false]
+ * On every frame, do
+ *	1) Compute the vector from the position of runFromThis to this object's position.
+ *      - i.e. this.transform.position - runFromThis.transform.position
+ *  2) Normalise this vector, so we have a direction vector, multiply by speed.
+ *  3) Move in this direction.
+ *
+ * If smart = true, it doesn't simply move in the opposite direction.
+ * It also predicts if it will ram into a wall, and if it will, it moves in another direction.
+ * It has slightly more complicated logic, which you can read in the code.
+ */
+
 public class RunAway : MonoBehaviour {
 
 	private GameObject runFromThis;

@@ -5,6 +5,13 @@ using System.Collections;
 // If you attach this code to something, it will respond to your arrow keys and move.
 // But it needs a rigidbody to work. So remember to attach one to the gameobject.
 
+/** 
+ * HOW IT WORKS:
+ * 
+ * This script makes it so that on every frame:
+ *   1) Check if any of the Up/Down/Left/Right keys are being held down.
+ *   2) If it is, set the velocity of this object to be in the direction of the keys held down.
+ */
 
 public class Controller : MonoBehaviour {
 
