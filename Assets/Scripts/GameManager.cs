@@ -75,7 +75,11 @@ public class GameManager : MonoBehaviour {
 		collectibleCount--;
 	}
 
-	public void IncrementCollectibleCount() {
+    public void ModifyScore(int scoreChange) {
+        score += scoreChange;
+    }
+
+    public void IncrementCollectibleCount() {
 		collectibleCount++;
 	}
 
