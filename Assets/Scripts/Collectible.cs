@@ -17,6 +17,9 @@ public class Collectible : MonoBehaviour {
 
 	private GameManager gameManager;
 
+    [SerializeField]
+    private string collectorName = "Player";
+
 	// Called on start
 	void Start() {
 		CheckForErrors();
@@ -33,7 +36,7 @@ public class Collectible : MonoBehaviour {
 		// There are a few methods to do this. I'll be using Method 1.
 
 		// Method 1: Check object name (I'm using this)
-		if (other.name.ToLower() != "player") return;
+		if (other.name.ToLower() != collectorName.ToLower()) return;
 
 		// Method 2: Check object tag (I'm not using this)
 		//if (other.tag != 7) return;
