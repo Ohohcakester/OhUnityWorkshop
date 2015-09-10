@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 // Attach this script to make the object run away.
 
@@ -24,6 +23,9 @@ public class RunAway : MonoBehaviour {
 
 	private GameObject runFromThis;
 
+    [SerializeField]
+    private string runFromThisName = "Player";
+
 	[SerializeField]
 	private float speed = 4f;
 
@@ -35,9 +37,8 @@ public class RunAway : MonoBehaviour {
 	void Start () {
 		CheckForErrors();
 
-		runFromThis = GameObject.Find("player");
-		if (runFromThis == null)
-			runFromThis = GameObject.Find("Player");
+		runFromThis = GameObject.Find(runFromThisName);
+		if (runFromThis == null) runFromThis = GameObject.Find(runFromThisName.ToLower());
 	}
 	
 	// Update is called once per frame
