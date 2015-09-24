@@ -3,7 +3,8 @@ using System.Collections;
 
 public class Controller : MonoBehaviour
 {
-    [SerializeField] private float speed = 10f;
+    [SerializeField]
+    private float speed = 10f;
 
 	// Use this for initialization
 	void Start ()
@@ -37,4 +38,9 @@ public class Controller : MonoBehaviour
 
 	    rigidbody.velocity = velocity;
 	}
+
+    public void IncreaseSpeed(float increment)
+    {
+        speed += increment;
+    }
 }
