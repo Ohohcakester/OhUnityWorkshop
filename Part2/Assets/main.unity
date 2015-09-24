@@ -194,10 +194,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 62114938}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 383c209b029989e49b133389851f6059, type: 3}
+  m_Script: {fileID: 11500000, guid: c7a59f8eadf652e47a6f17839abeee69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   prefab_bullet: {fileID: 111496, guid: 489a48b189bc81a45873649de60e8341, type: 2}
+  cooldown: .100000001
+  bulletSpeed: 20
 --- !u!1 &741430055
 GameObject:
   m_ObjectHideFlags: 0
