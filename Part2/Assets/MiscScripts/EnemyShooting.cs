@@ -98,6 +98,7 @@ public class EnemyShooting : MonoBehaviour {
         if (clockwise) velocity.x = -velocity.x;
         var bullet = Instantiate(prefab_bullet, transform.position + offset, prefab_bullet.transform.rotation) as GameObject;
         bullet.GetComponent<Rigidbody2D>().velocity = velocity;
+        bullet.GetComponent<BulletHit>().isEnemyBullet = true;
         return bullet;
     }
 }

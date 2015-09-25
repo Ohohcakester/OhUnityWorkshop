@@ -14,7 +14,8 @@ public class Shooting : MonoBehaviour
 	    if (Input.GetKeyDown(KeyCode.Z))
 	    {
 	        var bullet = Instantiate(prefab_bullet, transform.position, prefab_bullet.transform.rotation) as GameObject;
-	        var bulletRigidbody = bullet.GetComponent<Rigidbody2D>();
+            var bulletRigidbody = bullet.GetComponent<Rigidbody2D>();
+            bullet.GetComponent<BulletHit>().isEnemyBullet = false;
 	        bulletRigidbody.velocity = Vector3.up*bulletSpeed;
 	    }
 	}

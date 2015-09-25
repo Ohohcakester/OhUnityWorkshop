@@ -36,6 +36,7 @@ public class ShootingAdvanced : MonoBehaviour
     {
         var bullet = Instantiate(prefab_bullet, spawnLocation, prefab_bullet.transform.rotation) as GameObject;
         var bulletRigidbody = bullet.GetComponent<Rigidbody2D>();
+        bullet.GetComponent<BulletHit>().isEnemyBullet = false;
         bulletRigidbody.velocity = Vector3.up * bulletSpeed;
     }
 }

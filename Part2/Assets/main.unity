@@ -115,7 +115,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 62114938}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c30d4070e52e23d4f8d64497567d255c, type: 3}
+  m_Script: {fileID: 11500000, guid: b17385ae2fb396f4991c1c55e50ffdf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
@@ -156,7 +156,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!61 &62114942
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -194,12 +194,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 62114938}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7a59f8eadf652e47a6f17839abeee69, type: 3}
+  m_Script: {fileID: 11500000, guid: eefd88a95731368458e3df676fafb2e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   prefab_bullet: {fileID: 111496, guid: 489a48b189bc81a45873649de60e8341, type: 2}
-  cooldown: .100000001
-  bulletSpeed: 20
+--- !u!1 &316204517 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 172978, guid: 8ece70df2cc5e5e4692792759e7acd33, type: 2}
+  m_PrefabInternal: {fileID: 1957519918}
+--- !u!50 &316204523
+Rigidbody2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 316204517}
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &741430055
 GameObject:
   m_ObjectHideFlags: 0
@@ -239,7 +257,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 741430055}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6af393c9a19ce7c47a3fd3729fc32af1, type: 3}
+  m_Script: {fileID: 11500000, guid: 54eae177be9e6f5439b2eb00c5b1b2a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!212 &741430058
@@ -279,7 +297,53 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
+--- !u!1001 &1957519918
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 468282, guid: 8ece70df2cc5e5e4692792759e7acd33, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -.720000029
+      objectReference: {fileID: 0}
+    - target: {fileID: 468282, guid: 8ece70df2cc5e5e4692792759e7acd33, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 6.59000015
+      objectReference: {fileID: 0}
+    - target: {fileID: 468282, guid: 8ece70df2cc5e5e4692792759e7acd33, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 468282, guid: 8ece70df2cc5e5e4692792759e7acd33, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 468282, guid: 8ece70df2cc5e5e4692792759e7acd33, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 468282, guid: 8ece70df2cc5e5e4692792759e7acd33, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 468282, guid: 8ece70df2cc5e5e4692792759e7acd33, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 468282, guid: 8ece70df2cc5e5e4692792759e7acd33, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11452398, guid: 8ece70df2cc5e5e4692792759e7acd33, type: 2}
+      propertyPath: prefab_bullet
+      value: 
+      objectReference: {fileID: 111496, guid: 489a48b189bc81a45873649de60e8341, type: 2}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 8ece70df2cc5e5e4692792759e7acd33, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1977654538
 GameObject:
   m_ObjectHideFlags: 0
@@ -340,7 +404,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 8
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -364,4 +428,4 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2

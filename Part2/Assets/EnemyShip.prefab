@@ -12,6 +12,7 @@ GameObject:
   - 114: {fileID: 11498734}
   - 114: {fileID: 11452398}
   - 114: {fileID: 11490044}
+  - 58: {fileID: 5866902}
   m_Layer: 0
   m_Name: EnemyShip
   m_TagString: Enemy
@@ -31,6 +32,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!58 &5866902
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 172978}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: .629999995
 --- !u!114 &11452398
 MonoBehaviour:
   m_ObjectHideFlags: 1
