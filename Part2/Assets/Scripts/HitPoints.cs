@@ -6,6 +6,9 @@ public class HitPoints : MonoBehaviour {
     [SerializeField]
     private int maxHp = 1;
 
+    [SerializeField]
+    private int scoreOnDeath = 0;
+
     private int hp;
 
 	// Use this for initialization
@@ -19,6 +22,7 @@ public class HitPoints : MonoBehaviour {
         hp -= damage;
         if (hp <= 0)
         {
+            GameManager.instance.AddScore(scoreOnDeath);
             Destroy(this.gameObject);
         }
     }

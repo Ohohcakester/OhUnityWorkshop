@@ -33,7 +33,13 @@ public class EnemyShooting : MonoBehaviour {
         ANTICLOCKWISE,
     }
 
-	// Use this for initialization
+    // Must be called before start.
+    public void SetBulletPattern(BulletPattern pattern)
+    {
+        this.bulletPattern = pattern;
+    }
+
+    // Use this for initialization
 	void Start () {
 	    switch (rotateDirection)
         {

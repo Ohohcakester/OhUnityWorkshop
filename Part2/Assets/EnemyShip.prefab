@@ -75,6 +75,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHp: 5
+  scoreOnDeath: 1
 --- !u!114 &11452398
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -86,7 +87,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 805f9d31b2b6fa74dbf39b7fea972961, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPattern: 0
+  bulletPattern: 5
   prefab_bullet: {fileID: 111496, guid: 489a48b189bc81a45873649de60e8341, type: 2}
   rotateDirection: 0
 --- !u!114 &11490044
@@ -168,6 +169,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_GravityScale
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: bulletPattern
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: scoreOnDeath
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
