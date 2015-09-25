@@ -13,6 +13,8 @@ GameObject:
   - 114: {fileID: 11452398}
   - 114: {fileID: 11490044}
   - 58: {fileID: 5866902}
+  - 114: {fileID: 11444406}
+  - 50: {fileID: 5047072}
   m_Layer: 0
   m_Name: EnemyShip
   m_TagString: Enemy
@@ -32,6 +34,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!50 &5047072
+Rigidbody2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 172978}
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!58 &5866902
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -45,6 +63,18 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: .629999995
+--- !u!114 &11444406
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 172978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07933e5e6769c6f438255fcd36fa6c26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHp: 5
 --- !u!114 &11452398
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -57,7 +87,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPattern: 0
-  prefab_bullet: {fileID: 0}
+  prefab_bullet: {fileID: 111496, guid: 489a48b189bc81a45873649de60e8341, type: 2}
   rotateDirection: 0
 --- !u!114 &11490044
 MonoBehaviour:
@@ -122,6 +152,22 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_TagString
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: maxHp
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: prefab_bullet
+      value: 
+      objectReference: {fileID: 111496, guid: 489a48b189bc81a45873649de60e8341, type: 2}
+    - target: {fileID: 0}
+      propertyPath: m_AngularDrag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_GravityScale
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
