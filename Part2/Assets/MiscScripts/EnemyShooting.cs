@@ -120,6 +120,7 @@ class BCRandomSpray : BulletController
     {
         this.shooting = shooting;
         currentDirection = Random.seed % 4 * 90 + 10f;
+        nextBulletTime = Time.time;
     }
 
     public void Update()
@@ -148,6 +149,7 @@ class BCRings : BulletController
     {
         this.shooting = shooting;
         angleGap = 360f / count;
+        nextBulletTime = Time.time;
     }
 
     public void Update()
@@ -183,6 +185,7 @@ class BCLoops : BulletController
     {
         this.shooting = shooting;
         currentDirection = Random.Range(0, 360f);
+        nextBulletTime = Time.time;
     }
 
     public void Update()
@@ -229,6 +232,7 @@ class BCWaves : BulletController
     public BCWaves(EnemyShooting shooting)
     {
         this.shooting = shooting;
+        nextBulletTime = Time.time;
     }
 
     public void Update()
@@ -277,6 +281,7 @@ class BCSpiral : BulletController
         this.shooting = shooting;
         currentDirection1 = Random.Range(0, 360f);
         currentDirection2 = Random.Range(0, 360f);
+        nextBulletTime = Time.time;
     }
 
     public void Update()
@@ -290,8 +295,8 @@ class BCSpiral : BulletController
 
             shooting.FireBullet(currentDirection1, 5f);
             shooting.FireBullet(currentDirection2, 5f);
-            nextBulletTime += cooldown;
 
+            nextBulletTime += cooldown;
         }
     }
 }
@@ -308,7 +313,7 @@ class BCBurst : BulletController
     public BCBurst(EnemyShooting shooting)
     {
         this.shooting = shooting;
-        //currentDirection = Random.Range(0, 360f);
+        nextBulletTime = Time.time;
     }
 
     public void Update()
