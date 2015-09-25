@@ -274,7 +274,8 @@ class BCSpiral : BulletController
     public BCSpiral(EnemyShooting shooting)
     {
         this.shooting = shooting;
-        //currentDirection = Random.Range(0, 360f);
+        currentDirection1 = Random.Range(0, 360f);
+        currentDirection2 = Random.Range(0, 360f);
     }
 
     public void Update()
